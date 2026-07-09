@@ -25,7 +25,8 @@
 ## Active branch / PR
 
 - **Branch:** `feat/ecosystem-modular-local`
-- **PR #1:** [storeCommerceGuard + modular](https://github.com/AynBeirut/grabio.space/pull/1) — **OPEN, not merged**
+- **PR #1:** [storeCommerceGuard + modular](https://github.com/AynBeirut/grabio.space/pull/1) — **MERGED** (2026-07-09)
+- **Main head:** `bfb4fa48d9813fd4bdfd2dab9f41b44a4b66e700`
 - Post-cleanup: 440 files, **0** `the eco sys/` paths
 
 ## Key production modules (in-repo)

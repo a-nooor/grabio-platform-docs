@@ -1,21 +1,10 @@
 # Backlog — Open
 
-**Last synced:** 2026-07-09
+**Last synced:** 2026-07-09 (post PR #1 merge)
 
 ---
 
 ## grabio.space `#grabio`
-
-### PR #1 — merge review (blocked on owner)
-
-| Field | Value |
-|-------|-------|
-| **Item** | Review and merge PR #1 |
-| **Branch** | `feat/ecosystem-modular-local` → `main` |
-| **URL** | https://github.com/AynBeirut/grabio.space/pull/1 |
-| **Scope** | 440 files — storeCommerceGuard, POS API, modular entitlements, builder, finance embed wiring |
-| **Blocker** | Owner approval; `.env.production` diff in PR needs review |
-| **Done when** | PR merged after deploy protocol satisfied |
 
 ### Invoice embed — Workstream B (staging QA)
 
