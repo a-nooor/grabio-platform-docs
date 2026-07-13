@@ -55,4 +55,12 @@ Implemented in `src/pages/admin/AdminRecipes.tsx`:
 
 Frontend build passes (`npm run build`). Both frontend changes (AdminProducts create-dialog recipe selector + AdminRecipes quick-add) ship together in the next **hosting deploy**.
 
+## Update 3 — quick-add extended + hosting deployed
+
+- Added the same inline "+ Add new raw material" quick-add to `src/pages/admin/AdminComposedProducts.tsx` (material row dropdown + empty-state button; removed the "Add Material disabled when no materials" dead-end).
+- **Hosting DEPLOYED** (`firebase deploy --only hosting`, market-flow-7b074, https://market-flow-7b074.web.app). Ships: AdminProducts create-dialog recipe selector, AdminRecipes quick-add, AdminComposedProducts quick-add.
+- Note: PWA — client may need a hard refresh to pick up the new bundle.
+
+Runtime-proof for the deduction still pending one real test sale of fajita (owner to perform).
+
 **Repos affected:** grabio.space (functions + frontend)
