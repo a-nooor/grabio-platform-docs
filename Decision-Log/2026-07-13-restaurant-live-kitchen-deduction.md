@@ -29,4 +29,19 @@
 - Open follow-up: sell-side stock gating — ensure storefront/POS lets a `live_kitchen` composed product be sold based on available raw materials (not requiring produced finished-goods stock).
 - New restaurants must be created with `businessWorkflow = 'live_kitchen'`.
 
-**Repos affected:** grabio.space (functions)
+## Update — live data findings + additional fixes (same day)
+
+Snapshot of the client store (`ujff7blWYvUvlekQOrybvNCnn9V2`, jinandaw86) revealed the code fix alone was **not sufficient**:
+- Composed product `fajita` had **`recipeId = none`** — recipe existed (`tnlR4hHJRgt4EZQJwigE`, tomato 0.3 + bread 1, yield 1) but was never linked to the product. `composedProducts` collection empty. This is the "where do I attach the recipe?" gap.
+- Raw materials had `currentStock = 0` (nothing to deduct).
+
+Actions taken:
+1. Data fix (`scripts/fixFajitaLinkAndStock.cjs`): set `products.recipeId`, and temp test stock bread=100, tomato=50 (client overwrites via import).
+2. **UX fix** `src/pages/admin/AdminProducts.tsx`: added recipe `<Select>` to the **create** dialog (was only in edit). Falls back to a "create a recipe first" hint when none exist. Needs **hosting deploy**.
+3. **Trigger gap** `functions/src/triggers/orderNotifications.ts`: `onOrderCreated` did not run deduction, so orders created already-`paid` (admin/POS one-step) never deducted. Added deduction on create (idempotency key prevents doubles). **Deployed.**
+
+Deploys done: `api`, `onOrderCreated`, `onOrderStatusChanged`. Pending: hosting deploy for the AdminProducts create-dialog recipe selector.
+
+Read-only proof tool: `scripts/kitchenStockSnapshot.cjs --email <email>` (before/after a sale).
+
+**Repos affected:** grabio.space (functions + frontend)
