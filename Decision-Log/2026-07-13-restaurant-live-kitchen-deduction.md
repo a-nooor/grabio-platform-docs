@@ -44,4 +44,15 @@ Deploys done: `api`, `onOrderCreated`, `onOrderStatusChanged`. Pending: hosting 
 
 Read-only proof tool: `scripts/kitchenStockSnapshot.cjs --email <email>` (before/after a sale).
 
+## Update 2 — stock model clarification + inline quick-add material
+
+Owner clarified the product model (applies to **both** resto and manufacturing):
+- Creating a **recipe** or a **product** does NOT require stock. Stock only matters at sale (resto) / production (factory). Recipe creation still requires ingredient **cost > 0** (for costing) — that's cost, not stock.
+- Quick-add should be inline so users never leave the page.
+
+Implemented in `src/pages/admin/AdminRecipes.tsx`:
+- Ingredient material dropdown (both create + edit recipe dialogs) now has a **"+ Add new raw material"** option → opens a small inline dialog (name, unit, cost) → creates the `rawMaterials` doc with `currentStock: 0` (no stock forced), auto SKU/barcode, then auto-selects it into the ingredient row and syncs the unit.
+
+Frontend build passes (`npm run build`). Both frontend changes (AdminProducts create-dialog recipe selector + AdminRecipes quick-add) ship together in the next **hosting deploy**.
+
 **Repos affected:** grabio.space (functions + frontend)
