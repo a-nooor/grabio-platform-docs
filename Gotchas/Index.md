@@ -12,7 +12,8 @@ Quick lookup. Detail in linked notes.
 | POS data visible across Windows users | DB path machine-wide `C:\AynBeirutPOS-Data\` | Expected; not per-user isolation |
 | `git push` rejected after filter-repo | History rewrite | `git push --force-with-lease` (coordinate with team) |
 | PR contains eco sys files | Boundary violation | [[Architecture/Repo-Boundaries]] |
-| `.env` in PR | Secrets risk | Never commit; revert to main tip |
+| Admin profile save fails: `financeDocumentSettings.primaryColor` undefined | New store has no theme colors; save wrote `undefined` to Firestore | Defaults now patched on profile; code fix in AdminProfile + finance storeService (deploy hosting to ship) |
+| Restaurant sale doesn't reduce raw material stock | `kitchenSaleDeduction` read wrong fields (`ingredients.materialId`, rawMaterial `.quantity`); requires `businessWorkflow='live_kitchen'` | Fixed to read `ingredients`/`materials` + `rawMaterialId` + `currentStock` + yield; needs functions deploy. See [[Decision-Log/2026-07-13-restaurant-live-kitchen-deduction]] |
 
 ## Stale PWA bundle
 
