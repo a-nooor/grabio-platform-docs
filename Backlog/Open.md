@@ -23,6 +23,24 @@
 | **Context** | AdminProducts permission errors traced to old cached JS |
 | **Done when** | Post-deploy smoke on `/admin/products` with hard refresh / SW bump |
 
+### Nipco — paid purchases not relieved from GL 201
+
+| Field | Value |
+|-------|-------|
+| **Item** | JE audit + correcting entries for ops-paid purchases still on **201** (~**$161k** GL vs ~**$34k** open AP subledger) |
+| **Blocker** | None — schedule after **depreciation** scoping or reconciliation sprint |
+| **Ref** | [[Decision-Log/2026-07-25-nipco-ap-201-payment-relief-gap]] |
+| **Proof (subledger)** | `verifyAgedPayablesE2E.cjs` on Nipco store id `DfIhBAEZ5NR7yNX0HboZvv58Nf82` |
+
+### Reconciliation — Cash on Hand & AR subledger vs GL
+
+| Field | Value |
+|-------|-------|
+| **Item** | Align **102** ops cash snapshot + **110** AR subledger with GL (or document intentional cash-first policy) |
+| **Blocker** | None — **out of scope for AP Aging + Cash Flow prod release (2026-07-25)** |
+| **Ref** | [[Decision-Log/2026-07-25-reconciliation-cash-ar-gaps]] |
+| **Example (Nipco)** | Cash GL **$47,594.50** vs ops **$0**; AR subledger **$33.60** vs GL **$0** |
+
 ---
 
 ## ecosystem.git `#ecosystem`
