@@ -28,7 +28,7 @@
 | Field | Value |
 |-------|-------|
 | **Item** | JE audit + correcting entries for ops-paid purchases still on **201** (~**$161k** GL vs ~**$34k** open AP subledger) |
-| **Blocker** | None — schedule after **depreciation** scoping or reconciliation sprint |
+| **Blocker** | None — schedule when Nipco 201 audit is prioritized |
 | **Ref** | [[Decision-Log/2026-07-25-nipco-ap-201-payment-relief-gap]] |
 | **Proof (subledger)** | `verifyAgedPayablesE2E.cjs` on Nipco store id `DfIhBAEZ5NR7yNX0HboZvv58Nf82` |
 
@@ -54,6 +54,16 @@
 |-------|-------|
 | **Gapless voucher serials** | Serial counter advances on failed post attempts; fix when audit requires gapless PV/JV/RV/CV numbers |
 | **JE `event` field** | Cosmetic — some posted JEs missing `event`; align with posting schema when convenient |
+
+### Real bank reconciliation (statement import + matching)
+
+| Field | Value |
+|-------|-------|
+| **Item** | Full bank rec: statement import/entry, match to GL **106/105** (optional **102** later), unmatched bank/book items, reconciliation report |
+| **Effort** | **12–18 dev-days** MVP (+ **4–6** if **102** or multi-account in v1) |
+| **Dependency** | **Cash on Hand** ops snapshot vs GL **102** gap ([[Decision-Log/2026-07-25-reconciliation-cash-ar-gaps]]) — affects whether POS cash belongs in bank rec scope |
+| **Priority** | **Not now** — future capability; **Cash Collection** deposit tracking already works (E-Service proof 2026-07-25) |
+| **Note** | Distinct from Accounting → Reconciliation (GL vs AR/AP aging snapshots) and from today’s gap-closing ship list |
 
 ---
 
