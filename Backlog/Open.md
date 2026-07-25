@@ -41,6 +41,14 @@
 | **Ref** | [[Decision-Log/2026-07-25-reconciliation-cash-ar-gaps]] |
 | **Example (Nipco)** | Cash GL **$47,594.50** vs ops **$0**; AR subledger **$33.60** vs GL **$0** |
 
+### Depreciation MVP (fixed-asset register)
+
+| Field | Value |
+|-------|-------|
+| **Item** | Staging QA: Accounting → **Depreciation** tab; E-Service pilot asset + `verifyDepreciationE2E.cjs` |
+| **Blocker** | Owner prod approval after staging smoke |
+| **Proof** | `seedEserviceDepreciationPilot.cjs` · `verifyDepreciationE2E.cjs` (Dr **710** / Cr **156** **$100**, idempotent) |
+
 ---
 
 ## ecosystem.git `#ecosystem`
