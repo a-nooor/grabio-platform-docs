@@ -48,12 +48,12 @@
 | **Status** | **Shipped prod 2026-07-25** — Accounting → Depreciation tab |
 | **Proof** | `verifyDepreciationE2E.cjs` (Dr **710** / Cr **156**, idempotent); pilot data cleaned on E-Service |
 
-### GL / vouchers — low priority (engineering notes)
+### GL / vouchers — shipped 2026-07-25
 
 | Field | Value |
 |-------|-------|
-| **Gapless voucher serials** | Serial counter advances on failed post attempts; fix when audit requires gapless PV/JV/RV/CV numbers |
-| **JE `event` field** | Cosmetic — some posted JEs missing `event`; align with posting schema when convenient |
+| **Gapless voucher serials** | **Done** — voucher number allocated inside successful `postJournalEntry` Firestore transaction only |
+| **JE `event` field** | **Done** on new posts — stored on `journalEntries.event`; legacy rows may still be blank (`sourceKey` retains event segment) |
 
 ### Real bank reconciliation (statement import + matching)
 
