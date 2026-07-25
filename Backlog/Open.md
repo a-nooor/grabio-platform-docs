@@ -45,9 +45,15 @@
 
 | Field | Value |
 |-------|-------|
-| **Item** | Staging QA: Accounting → **Depreciation** tab; E-Service pilot asset + `verifyDepreciationE2E.cjs` |
-| **Blocker** | Owner prod approval after staging smoke |
-| **Proof** | `seedEserviceDepreciationPilot.cjs` · `verifyDepreciationE2E.cjs` (Dr **710** / Cr **156** **$100**, idempotent) |
+| **Status** | **Shipped prod 2026-07-25** — Accounting → Depreciation tab |
+| **Proof** | `verifyDepreciationE2E.cjs` (Dr **710** / Cr **156**, idempotent); pilot data cleaned on E-Service |
+
+### GL / vouchers — low priority (engineering notes)
+
+| Field | Value |
+|-------|-------|
+| **Gapless voucher serials** | Serial counter advances on failed post attempts; fix when audit requires gapless PV/JV/RV/CV numbers |
+| **JE `event` field** | Cosmetic — some posted JEs missing `event`; align with posting schema when convenient |
 
 ---
 
