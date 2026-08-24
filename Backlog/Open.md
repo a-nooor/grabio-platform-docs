@@ -59,11 +59,12 @@
 
 | Field | Value |
 |-------|-------|
+| **Status** | **Phase 1 in progress** (staging → E-Service proof) |
+| **Plan** | [[Decision-Log/2026-07-25-bank-reconciliation-phased-plan]] |
 | **Item** | Full bank rec: statement import/entry, match to GL **106/105** (optional **102** later), unmatched bank/book items, reconciliation report |
-| **Effort** | **12–18 dev-days** MVP (+ **4–6** if **102** or multi-account in v1) |
-| **Dependency** | **Cash on Hand** ops snapshot vs GL **102** gap ([[Decision-Log/2026-07-25-reconciliation-cash-ar-gaps]]) — affects whether POS cash belongs in bank rec scope |
-| **Priority** | **Not now** — future capability; **Cash Collection** deposit tracking already works (E-Service proof 2026-07-25) |
-| **Note** | Distinct from Accounting → Reconciliation (GL vs AR/AP aging snapshots) and from today’s gap-closing ship list |
+| **Effort** | **12–18 dev-days** MVP (+ **4–6** if **102** or multi-account in v1); Phase 1 alone **5–7** |
+| **Dependency** | **Cash on Hand** ops snapshot vs GL **102** gap ([[Decision-Log/2026-07-25-reconciliation-cash-ar-gaps]]) — Phase 4 |
+| **Note** | Distinct from Accounting → Reconciliation (GL vs AR/AP aging snapshots) and from Cash Collection deposits |
 
 ---
 
