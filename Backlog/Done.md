@@ -4,6 +4,16 @@ Move items here when closed; prune entries older than ~30 days.
 
 ---
 
+## 2026-09-10 — Internal Demo OS + marketing demo stores (prod)
+
+- **SEO Phase 2:** sitemap index split, index policy, 10 priority prerender pages, programmatic quality gates (deployed earlier same day)
+- **Public mock previews:** `/demo/:slug/app`, `/features/:moduleId/app` (15 URLs)
+- **Marketing demo storefronts:** `scripts/seedMarketingDemoStores.cjs` → `grabio-demo-shop|cafe|restaurant|manufacturing|ecommerce`
+- **Internal Demo OS Phase 1:** `/demo-os` + 12 modules; vertical tours `/demo/:slug/os/:moduleId`; sign-in gate; sitemap + prerender (+13 shells, 48 total)
+- **Deployed:** `firebase deploy --only hosting` + `functions:api` on `market-flow-7b074`
+- **Live:** https://grabio.space/demo-os , https://grabio.space/demo/shop/os/dashboard
+- **Ref:** repo `README.md`, `decision-log.md`, `architecture.md`
+
 ## 2026-07-09 — Eco sys stripped from grabio.space PR
 
 - Removed `the eco sys/` from PR #1 (0 paths in compare)
